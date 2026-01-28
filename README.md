@@ -1,1 +1,1 @@
-# DS_recitation1
+# Data_Structure lecture notes and recitation codes
