@@ -1,9 +1,9 @@
 class Person:
     # TODO: Please write your code here
-    def __init__(self, FirstName, LastName, age, hobbies):
-        self.FirstName = FirstName
-        self.LastName = LastName
-        self.age = age
+    def __init__(self, first_name, last_name, age, hobbies):
+        self.first_name = first_name
+        self.last_name = last_name
+        self._age = age
         self.hobbies = hobbies
         
     def introduce(self):
@@ -12,21 +12,14 @@ class Person:
         elif len(self.hobbies) == 2: 
             hobby_str = self.hobbies[0] + " and " + self.hobbies[1]
         else:
-            return None
+            hobby_str = ", ".join(self.hobbies[:-1]) + ", and " + self.hobbies[-1]
             
-        print(f'Hi, My name is {self.FirstName} {self.LastName}. And I like {hobby_str}')
+        return f'Hi, My name is {self.first_name} {self.last_name}. And I like {hobby_str}'
     
-    # def add_hobbies(self,other):
-        """
-        The function `add_hobbies` takes two objects as input and combines their hobbies into a single
-        list.
-        
-        :param other: The `other` parameter in the `add_hobbies` function seems to represent another
-        object or instance that also has a `hobbies` attribute. By adding the `hobbies` of the `self`
-        object (the object on which the method is called) with the `hobbies` of
-        """
-    #     hobbies = self.hobbies + other.hobbies
-    #     return hobbies
+    def add_hobbies(self, new_hobbies):
+        for hobby in new_hobbies:
+            if hobby not in self.hobbies:
+                self.hobbies.append(hobby)
 
 # Do not change or remove the code below this point
 def main():
